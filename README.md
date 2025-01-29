@@ -28,3 +28,5 @@ To incorporate the `SwiftFast` package into your project using Swift Package Man
 
 - Buttons
   - [GradientButton](https://github.com/tolunaykan/SwiftFast/wiki/GradientButton)
+- Picker
+  - [ImagePicker](https://github.com/tolunaykan/SwiftFast/wiki/ImagePicker)
