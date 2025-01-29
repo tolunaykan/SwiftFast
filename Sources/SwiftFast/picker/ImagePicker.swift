@@ -1,7 +1,7 @@
 import SwiftUI
 import PhotosUI
 
-struct ImagePicker: UIViewControllerRepresentable {
+public struct ImagePicker: UIViewControllerRepresentable {
     @Binding private var selectedImages: [UIImage]
     private var selectionLimit: Int
     private var onDismiss: (() -> Void)?
@@ -16,11 +16,11 @@ struct ImagePicker: UIViewControllerRepresentable {
         self.onDismiss = onDismiss
     }
     
-    func makeCoordinator() -> Coordinator {
+    public func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
     
-    func makeUIViewController(context: Context) -> PHPickerViewController {
+    public func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration()
         config.filter = .images
         config.selectionLimit = selectionLimit
@@ -30,17 +30,17 @@ struct ImagePicker: UIViewControllerRepresentable {
         return picker
     }
     
-    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
+    public func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
     }
     
-    class Coordinator: NSObject, PHPickerViewControllerDelegate {
+    public class Coordinator: NSObject, PHPickerViewControllerDelegate {
         var parent: ImagePicker
         
         init(_ parent: ImagePicker) {
             self.parent = parent
         }
         
-        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        public func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
             picker.dismiss(animated: true) {
                 self.parent.onDismiss?()
             }
