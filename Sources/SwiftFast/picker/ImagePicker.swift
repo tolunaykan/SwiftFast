@@ -6,7 +6,7 @@ public struct ImagePicker: UIViewControllerRepresentable {
     private var selectionLimit: Int
     private var onDismiss: (() -> Void)?
     
-    init(
+    public init(
         selectedImages: Binding<[UIImage]>,
         selectionLimit: Int = 20,
         onDismiss: (() -> Void)? = nil
@@ -36,7 +36,7 @@ public struct ImagePicker: UIViewControllerRepresentable {
     public class Coordinator: NSObject, PHPickerViewControllerDelegate {
         var parent: ImagePicker
         
-        init(_ parent: ImagePicker) {
+        public init(_ parent: ImagePicker) {
             self.parent = parent
         }
         
